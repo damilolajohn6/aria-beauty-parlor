@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import image from "../assets/QWIK TECH LOGO 1.png";
-
+import bgImage from "../asset/simon-humler--AakIaAPV0w-unsplash.jpg";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,14 +8,20 @@ function Header() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <div>
-      {/* Main Header */}
-      <header className="bg-white shadow-md">
-        <div className="container mx-auto py-4 px-6 flex justify-between items-center flex-wrap">
+    <header>
+      {/* Hero Section */}
+      <div
+        className="relative w-full h-[400px] bg-cover bg-center text-white"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+
+        {/* Header Container */}
+        <div className="container relative mx-auto py-4 px-6 flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center mb-4 sm:mb-0">
+          <div className="flex items-center">
             <Link to="/">
-              {/* <img src={image} alt="Qwik Logo" className="" /> */}
+              <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
             </Link>
           </div>
 
@@ -24,9 +29,8 @@ function Header() {
           <div className="sm:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="text-gray-700 hover:text-blue-500"
+              className="text-white hover:text-gray-300"
             >
-              {/* Hamburger Icon */}
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -44,41 +48,48 @@ function Header() {
             </button>
           </div>
 
-          {/* Navigation Links - Desktop Only */}
+          {/* Navigation Links - Desktop */}
           <div className="hidden sm:flex items-center space-x-4">
-            <nav className="space-x-4 flex flex-row sm:space-x-6 md:space-x-10">
-              <Link to="/" className="text-gray-700 hover:text-[#EC2A02]">
+            <nav className="space-x-4 font-semibold flex">
+              <Link to="/" className="text-white hover:text-[#ffffff]">
                 Home
               </Link>
-              <Link to="/services" className="text-gray-700 hover:text-[#EC2A02]">
+              <Link to="/services" className="text-white hover:text-[#ffffff]">
                 Services
               </Link>
-              <Link
-                to="/about"
-                className="text-gray-700 hover:text-[#EC2A02]"
-              >
+              <Link to="/about" className="text-white hover:text-[#ffffff]">
                 About Us
               </Link>
             </nav>
 
-            {/* "Get in Touch" Button - Desktop Only */}
+            {/* Contact Button */}
             <div className="ml-4">
-              <Link
-                to="/contact"
-                className="text-gray-700 hover:text-[#EC2A02]"
-              >
-                <button className="border-gray-500 border text-gray-500 font-bold py-2 px-4 rounded">
+              <Link to="/contact">
+                <button className="bg-[#B08D79] text-white font-bold py-2 px-4 rounded hover:bg-[#ffffff]">
                   Contact Us
                 </button>
               </Link>
             </div>
           </div>
         </div>
-      </header>
 
-      {/* Mobile Menu - Visible when `menuOpen` is true */}
-      <div className={`sm:hidden ${menuOpen ? "block" : "hidden"}`}>
-        <div className="bg-white p-4">
+        {/* Hero Content */}
+        <div className="relative z-10 flex flex-col items-start mx-auto px-52 justify-items-start h-full">
+          <h1 className="text-4xl md:text-6xl font-semibold italic mb-4">
+            "Total Body & Face <br></br>Rejuvenation"
+          </h1>
+          <p className="text-lg text-gray-800 font-semibold italic text md:text-xl mb-6">
+            Redefine Beauty: From Facial <br></br>Glow to Body Contour.
+          </p>
+          <button className="bg-[#B08D79] text-white font-semibold py-3 px-6 rounded-md text-sm md:text-lg">
+            Start Your Journey
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="sm:hidden bg-white p-4">
           <nav className="space-y-4">
             <Link to="/" className="text-gray-700 hover:text-blue-500 block">
               Home
@@ -90,7 +101,7 @@ function Header() {
               Services
             </Link>
             <Link
-              to="/About"
+              to="/about"
               className="text-gray-700 hover:text-blue-500 block"
             >
               About Us
@@ -99,14 +110,14 @@ function Header() {
               to="/contact"
               className="text-gray-700 hover:text-blue-500 block"
             >
-              <button className="border-gray-500 border text-gray-500 font-bold py-2 px-4 rounded w-full">
+              <button className="border border-gray-500 text-gray-500 font-bold py-2 px-4 rounded w-full">
                 Contact Us
               </button>
             </Link>
           </nav>
         </div>
-      </div>
-    </div>
+      )}
+    </header>
   );
 }
 
