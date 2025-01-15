@@ -59,6 +59,7 @@ function HomeAbout() {
             src={sectionImage}
             alt="Body Sculpting Center"
             className="rounded-lg shadow-md w-full object-cover"
+            loading="lazy"
           />
         </div>
       </div>

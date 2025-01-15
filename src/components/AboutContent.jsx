@@ -28,6 +28,7 @@ const AboutContent = () => {
             src={teamImage}
             alt="State-of-the-art technology"
             className="rounded-lg shadow-lg w-full h-auto max-w-md mx-auto lg:max-w-full"
+            loading="lazy"
           />
         </div>
       </div>
@@ -39,6 +40,7 @@ const AboutContent = () => {
             src={teamImage2}
             alt="Expert professionals"
             className="rounded-lg shadow-lg w-full h-auto max-w-md mx-auto lg:max-w-full"
+            loading="lazy"
           />
         </div>
         <div className="lg:w-1/2">

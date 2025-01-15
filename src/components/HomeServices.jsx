@@ -44,6 +44,7 @@ function HomeServices() {
                 src={service.image}
                 alt={service.title}
                 className="rounded-lg shadow-md w-full h-[200px] object-cover"
+                loading="lazy"
               />
               <p className="mt-4 text-base font-medium text-[#6C5E46]">
                 {service.title}

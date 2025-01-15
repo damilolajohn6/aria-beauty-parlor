@@ -1,11 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import bgImage from "../asset/simon-humler--AakIaAPV0w-unsplash.jpg";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  // Close the menu if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setMenuOpen(false); // Close menu when clicked outside
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside); // Cleanup on unmount
+    };
+  }, []);
 
   return (
     <header>
@@ -29,6 +51,7 @@ function Header() {
           {/* Hamburger Menu for Mobile */}
           <div className="sm:hidden flex items-center">
             <button
+              ref={buttonRef}
               onClick={toggleMenu}
               className="text-white hover:text-gray-300"
             >
@@ -74,6 +97,37 @@ function Header() {
           </div>
         </div>
 
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div ref={menuRef} className="sm:hidden bg-white p-4 relative">
+            <nav className="space-y-4">
+              <Link to="/" className="text-gray-700 hover:text-blue-500 block">
+                Home
+              </Link>
+              <Link
+                to="/services"
+                className="text-gray-700 hover:text-blue-500 block"
+              >
+                Services
+              </Link>
+              <Link
+                to="/about"
+                className="text-gray-700 hover:text-blue-500 block"
+              >
+                About Us
+              </Link>
+              <Link
+                to="/contact"
+                className="text-gray-700 hover:text-blue-500 block"
+              >
+                <button className="border border-gray-500 text-gray-500 font-bold py-2 px-4 rounded w-full">
+                  Contact Us
+                </button>
+              </Link>
+            </nav>
+          </div>
+        )}
+
         {/* Hero Content */}
         <div className="relative z-10 flex flex-col items-center text-center mx-auto px-4 sm:px-8 md:px-16 lg:px-32 justify-center h-full">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold italic mb-4">
@@ -87,37 +141,6 @@ function Header() {
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="sm:hidden bg-white p-4">
-          <nav className="space-y-4">
-            <Link to="/" className="text-gray-700 hover:text-blue-500 block">
-              Home
-            </Link>
-            <Link
-              to="/services"
-              className="text-gray-700 hover:text-blue-500 block"
-            >
-              Services
-            </Link>
-            <Link
-              to="/about"
-              className="text-gray-700 hover:text-blue-500 block"
-            >
-              About Us
-            </Link>
-            <Link
-              to="/contact"
-              className="text-gray-700 hover:text-blue-500 block"
-            >
-              <button className="border border-gray-500 text-gray-500 font-bold py-2 px-4 rounded w-full">
-                Contact Us
-              </button>
-            </Link>
-          </nav>
-        </div>
-      )}
     </header>
   );
 }

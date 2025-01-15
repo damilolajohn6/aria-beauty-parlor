@@ -38,6 +38,7 @@ const Gallery = () => {
               src={image}
               alt={`Slide ${index + 1}`}
               className="w-full h-screen object-cover"
+              loading="lazy"
             />
           </div>
         ))}
