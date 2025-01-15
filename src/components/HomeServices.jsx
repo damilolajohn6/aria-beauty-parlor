@@ -8,7 +8,7 @@ function HomeServices() {
   const services = [
     {
       title: "Face Rejuvenation",
-      image:Image1,
+      image: Image1,
     },
     {
       title: "Silk Touch Laser Facial",

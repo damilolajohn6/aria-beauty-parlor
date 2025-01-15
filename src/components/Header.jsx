@@ -11,13 +11,14 @@ function Header() {
     <header>
       {/* Hero Section */}
       <div
-        className="relative w-full h-[400px] bg-cover bg-center text-white"
+        className="relative w-full h-[500px] bg-cover bg-center text-white"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
+        {/* Background Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
         {/* Header Container */}
-        <div className="container relative mx-auto py-4 px-6 flex justify-between items-center">
+        <div className="container relative mx-auto py-4 px-4 md:px-6 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/">
@@ -74,14 +75,14 @@ function Header() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex flex-col items-start mx-auto px-52 justify-items-start h-full">
-          <h1 className="text-4xl md:text-6xl font-semibold italic mb-4">
-            "Total Body & Face <br></br>Rejuvenation"
+        <div className="relative z-10 flex flex-col items-center text-center mx-auto px-4 sm:px-8 md:px-16 lg:px-32 justify-center h-full">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold italic mb-4">
+            "Total Body & Face <br /> Rejuvenation"
           </h1>
-          <p className="text-lg text-gray-800 font-semibold italic text md:text-xl mb-6">
-            Redefine Beauty: From Facial <br></br>Glow to Body Contour.
+          <p className="text-sm sm:text-lg md:text-xl text-gray-300 font-semibold italic mb-6">
+            Redefine Beauty: From Facial <br /> Glow to Body Contour.
           </p>
-          <button className="bg-[#B08D79] text-white font-semibold py-3 px-6 rounded-md text-sm md:text-lg">
+          <button className="bg-[#B08D79] text-white font-semibold py-3 px-6 rounded-md text-sm md:text-lg hover:bg-[#956A57]">
             Start Your Journey
           </button>
         </div>

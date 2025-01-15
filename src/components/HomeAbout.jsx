@@ -1,5 +1,5 @@
 import React from "react";
-import sectionImage from "../asset/engin-akyurt-SMwCQZWayj0-unsplash.jpg"
+import sectionImage from "../asset/engin-akyurt-SMwCQZWayj0-unsplash.jpg";
 
 function HomeAbout() {
   return (
@@ -9,13 +9,16 @@ function HomeAbout() {
           Body Sculpting & Face Beauty Center
         </h1>
         <p className="text-sm md:text-base text-[#6C5E46] py-4 leading-relaxed">
-          lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+          lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua ut enim ad minim
+          veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur
         </p>
       </div>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8">
         {/* Text Section */}
-        <div className="lg:w-1/2 space-y-6 text-center lg:text-left">
+        <div className="lg:w-1/2 space-y-6 text-center lg:text-left px-4 lg:px-0">
           <p className="text-sm md:text-base text-[#6C5E46] leading-relaxed">
             At Aria, we are dedicated to making you feel confident and radiant
             in your own skin. Our mission is to help you bring out your best
@@ -51,11 +54,11 @@ function HomeAbout() {
         </div>
 
         {/* Image Section */}
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 mt-8 lg:mt-0">
           <img
             src={sectionImage}
             alt="Body Sculpting Center"
-            className="rounded-lg shadow-md"
+            className="rounded-lg shadow-md w-full object-cover"
           />
         </div>
       </div>

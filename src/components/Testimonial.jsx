@@ -1,5 +1,5 @@
-import React from 'react'
-import Slider from 'react-slick';
+import React from "react";
+import Slider from "react-slick";
 
 const testimonials = [
   {
@@ -23,18 +23,16 @@ const testimonials = [
 ];
 
 const Testimonial = () => {
-
-    const settings = {
-      dots: true, // Enable navigation dots
-      infinite: true, // Loop through slides
-      speed: 500, // Transition speed
-      slidesToShow: 1, // Show one slide at a time
-      slidesToScroll: 1, // Scroll one slide at a time
-      autoplay: true, // Enable autoplay
-      autoplaySpeed: 9000, // Autoplay interval
-      arrows: true, // enable previous/next arrows
-    };
-
+  const settings = {
+    dots: true, // Enable navigation dots
+    infinite: true, // Loop through slides
+    speed: 500, // Transition speed
+    slidesToShow: 1, // Show one slide at a time
+    slidesToScroll: 1, // Scroll one slide at a time
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 9000, // Autoplay interval
+    arrows: true, // enable previous/next arrows
+  };
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-6">
@@ -45,14 +43,14 @@ const Testimonial = () => {
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="flex flex-col items-center justify-center text-center"
+            className="flex flex-col items-center justify-center text-center space-y-4"
           >
-            <img
+            {/* <img
               src={testimonial.image}
               alt={testimonial.name}
-              className="w-24 h-24 rounded-full object-cover mb-4"
-            />
-            <p className="text-lg italic text-gray-600 mb-4">
+              className="w-24 h-24 rounded-full object-cover mb-4 mx-auto"
+            /> */}
+            <p className="text-lg italic text-gray-600 mb-4 px-4 sm:px-8">
               "{testimonial.text}"
             </p>
             <h3 className="text-xl font-semibold text-gray-800">
@@ -63,6 +61,6 @@ const Testimonial = () => {
       </Slider>
     </div>
   );
-}
+};
 
-export default Testimonial
+export default Testimonial;
